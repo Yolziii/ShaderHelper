@@ -23,6 +23,7 @@ var CustomMaterial = (function (Material$$1) {
 
 		var techParams = [
 			{ name: 'texture', type: renderer.PARAM_TEXTURE_2D },
+            { name: 'texture2', type: renderer.PARAM_TEXTURE_2D },
 			{ name: 'color', type: renderer.PARAM_COLOR4 }
 		];
 		if (params) {
@@ -35,13 +36,14 @@ var CustomMaterial = (function (Material$$1) {
 		);
 
 		this.name = shaderName;
-		
+
 		this._effect = new renderer.Effect(
 			[ mainTech ],
             {},
 			defines,
         );
         this._texture = null;
+        this._texture2 = null;
         this._color = { r: 1, g: 1, b: 1, a: 1 };
 
 		this._mainTech = mainTech;
@@ -52,10 +54,11 @@ var CustomMaterial = (function (Material$$1) {
     // CustomMaterial.prototype.constructor = CustomMaterial;
     cc.js.extend(CustomMaterial, Material$$1);
 
-	var prototypeAccessors = { 
-        effect:  { configurable: true }, 
-        texture: { configurable: true }, 
-        color:   { configurable: true } 
+	var prototypeAccessors = {
+        effect:  { configurable: true },
+        texture: { configurable: true },
+        texture2: { configurable: true },
+        color:   { configurable: true }
     };
 
 	prototypeAccessors.effect.get = function () {
@@ -74,6 +77,18 @@ var CustomMaterial = (function (Material$$1) {
 		}
 	};
 
+    prototypeAccessors.texture2.get = function () {
+        return this._texture2;
+    };
+
+    prototypeAccessors.texture2.set = function (val) {
+        if (this._texture2 !== val) {
+            this._texture2 = val;
+            this._effect.setProperty('texture2', val.getImpl());
+            this._texIds['texture2'] = val.getId();
+        }
+    };
+
 	prototypeAccessors.color.get = function () {
 		return this._color;
 	};
@@ -90,6 +105,7 @@ var CustomMaterial = (function (Material$$1) {
 	CustomMaterial.prototype.clone = function clone() {
 		var copy = new CustomMaterial();
 		copy.texture = this.texture;
+        copy.texture2 = this.texture2;
 		copy.color = this.color;
 		copy.updateHash();
 		return copy;
@@ -99,7 +115,7 @@ var CustomMaterial = (function (Material$$1) {
 	CustomMaterial.prototype.setParamValue = function (name, value) {
 		this._effect.setProperty(name, value);
     };
-   
+
     // 获取自定义参数的值
     CustomMaterial.prototype.getParamValue = function (name) {
 		return this._effect.getProperty(name);

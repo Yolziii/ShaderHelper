@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.34375,
-      "y": 0.34375,
+      "x": 0.4984130859375,
+      "y": 0.4984130859375,
       "z": 1
     },
     "_quat": {
@@ -52,7 +52,6 @@
       "z": 0,
       "w": 1
     },
-    "_zIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
     "_id": "5d4e6a9e-4219-49ed-9db6-d1b57f89748e"
@@ -127,7 +126,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "54GFcMmzVJ3KNV2nKt3AS4"
   },
@@ -188,7 +186,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "69+lyuA9NC57As62Wv7Ub7"
   },
@@ -200,8 +197,6 @@
       "__id__": 3
     },
     "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "a23235d1-15db-4b95-8439-a2e005bfff91"
     },
@@ -218,6 +213,8 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_id": "aaOjV9VhJDVb1CBiUidT/f"
   },
   {
@@ -277,7 +274,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "0bjDmrs+NBU5GrYQfhcgvK"
   },
@@ -363,7 +359,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "f4mMchSLFDoYSzHlT2NhSX"
   },
@@ -375,8 +370,6 @@
       "__id__": 7
     },
     "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "eee7c902-130c-498b-ad6f-f53387adcc7e"
     },
@@ -393,6 +386,8 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_id": "f63uxFGCBOZLtKYvrjW/hg"
   },
   {
@@ -467,7 +462,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "49XXkPxnJI07krmgb+zhWE"
   },
@@ -479,8 +473,6 @@
       "__id__": 10
     },
     "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "284cf4f9-b7ef-44c1-ad4f-90e34a6d1db9"
     },
@@ -497,6 +489,8 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_id": "813c1NZjxHn4y4kaG497a6"
   },
   {
@@ -508,7 +502,7 @@
     },
     "_enabled": true,
     "_shaderObject": null,
-    "_N$program": 13,
+    "_N$program": 0,
     "_id": "2baJWeZ/VEurYkDuzcwAoh"
   },
   {

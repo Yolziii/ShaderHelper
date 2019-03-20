@@ -1,6 +1,7 @@
 /**
  * 为cc.Sprite增加材质接口
  */
+import SecondTexture from "./SecondTexture";
 
 const renderEngine = cc.renderer.renderEngine;
 const SpriteMaterial = renderEngine.SpriteMaterial;
@@ -11,7 +12,7 @@ const STATE_CUSTOM = 101;
 // 取自定义材质
 cc.Sprite.prototype.getMaterial = function(name) {
     return this._materials ? this._materials[name] : undefined;
-}
+};
 
 // 设置自定义材质
 cc.Sprite.prototype.setMaterial = function(name, mat) {
@@ -19,7 +20,7 @@ cc.Sprite.prototype.setMaterial = function(name, mat) {
         this._materials = {}
     }
     this._materials[name] = mat;
-}
+};
 
 // 激活某个材质
 cc.Sprite.prototype.activateMaterial = function(name) {
@@ -41,17 +42,23 @@ cc.Sprite.prototype.activateMaterial = function(name) {
             console.error("activateMaterial - unknwon material: ", name);
         }
     }
-}
+};
 
  // 取当前的材质
 cc.Sprite.prototype.getCurrMaterial = function() {
     if (this._state === STATE_CUSTOM) {
         return this._currMaterial;
     }
-}
+};
 
 cc.Sprite.prototype._activateMaterial = function() {
     let spriteFrame = this._spriteFrame;
+
+    let spriteFrame2;
+    let secondTexture = this.getComponent(SecondTexture);
+    if (secondTexture && secondTexture.spriteFrame && secondTexture.spriteFrame.textureLoaded()) {
+        spriteFrame2 = secondTexture.spriteFrame;
+    }
 
     // WebGL
     if (cc.game.renderType !== cc.game.RENDER_TYPE_CANVAS) {
@@ -82,6 +89,12 @@ cc.Sprite.prototype._activateMaterial = function() {
         }
         // Set texture
         if (spriteFrame && spriteFrame.textureLoaded()) {
+            if (spriteFrame2 && material === this._currMaterial) {
+                let texture2 = spriteFrame.getTexture();
+                material.texture2 = texture2;
+                this._updateMaterial(material);
+            }
+
             let texture = spriteFrame.getTexture();
             if (material.texture !== texture) {
                 material.texture = texture;
@@ -100,4 +113,4 @@ cc.Sprite.prototype._activateMaterial = function() {
             this.disableRender();
         }
     }
-}
+};
